@@ -9,7 +9,7 @@ export default class VideoList extends Component {
   return (
     <>
     <dev className="videoList">
-      VideoList
+      
     </dev>
     </>
   );

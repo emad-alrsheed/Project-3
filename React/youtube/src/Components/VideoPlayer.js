@@ -9,7 +9,7 @@ export default class VideoPlayer extends Component {
   return (
     <>
     <dev className="videoPlayer">
-      VideoPlayer
+      
     </dev>
     </>
   );
