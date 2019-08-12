@@ -21,8 +21,8 @@ changeCursor = () => {
   return (
     <>
     <dev className="item" onClick={this.props.openVideo.bind(this,this.props.items)} >
-    <img src={this.props.items.snippet.thumbnails.default.url} alt="thumbnails"/>
-    {this.props.items.snippet.title}
+    <div ><img src={this.props.items.snippet.thumbnails.default.url} alt="thumbnails"/></div>
+    <div >{this.props.items.snippet.title}</div>
     </dev>
     </>
   );
