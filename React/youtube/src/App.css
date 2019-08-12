@@ -27,5 +27,14 @@
 .searchBar1{
     display: block;
     margin: auto;
-    width: 57%;
+    width: 560px;
+}
+
+.videoList{
+    display: grid;
+}
+
+.item {
+    cursor: pointer;
+    
 }

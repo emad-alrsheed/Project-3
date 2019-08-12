@@ -1,10 +1,14 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+var myKey = "AIzaSyBWM2E6zwTUf5Rc4gYfvnJmUGelCnVo3xg";
+var maxResults = 3;
+
 
 export default class SearchBar extends Component {
  state = {
   q:"",
-  u:""
+  u:"",
+  items: []
  }
 
  change = (e) => {
@@ -12,41 +16,40 @@ export default class SearchBar extends Component {
    this.setState({q: e.target.value})
  }
 
- search = () => {
+//  search = () => {
    
-   var x = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${this.state.q}&type=video&key=AIzaSyBWM2E6zwTUf5Rc4gYfvnJmUGelCnVo3xg`
-   console.log(`${this.state.q}`)
-   axios.get(x)
+//    var x = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=${maxResults}&q=${this.state.q}&type=video&key=${myKey}`
+//    console.log(`${this.state.q}`)
+//    axios.get(x)
 
-      .then(response => {
+//       .then(response => {
 
-        console.log(response.data.items);
+//         console.log(response.data.items);
 
-        this.setState({
+//         this.setState({
 
-          u: "https://www.youtube.com/embed/" + response.data.items[0].id.videoId,
-          q:""
+//           u: "https://www.youtube.com/embed/" + response.data.items[0].id.videoId,
+//           q:"",
+//           items: response.data.items
 
-        });
-        console.log(this.state.u);
+//         });
+//         console.log(this.state.u);
 
-      })
+//       })
 
-      .catch(error => {
+//       .catch(error => {
 
-        console.log(error);
+//         console.log(error);
 
-      });
- }
+//       });
+//  }
  
   render(){
   return (
     <>
-    <dev className="searchBar"><input type="text" value={this.state.q} placeholder="Search" id="Search" onChange={this.change}/>   <button type="submit" onClick={this.search}><i className="fa fa-search"></i></button>
+    <dev className="searchBar"><input type="text" value={this.state.q} placeholder="Search" id="Search" onChange={this.change}/>   <button type="submit" onClick={this.props.search.bind(this,this.state.q)} ><i className="fa fa-search"></i></button>
      </dev>
-    <dev className="searchBar1">
-      <iframe width="560" height="315" src={this.state.u} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-    </dev>
+
     </>
   );
 }
