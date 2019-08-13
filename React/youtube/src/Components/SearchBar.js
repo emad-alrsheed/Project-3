@@ -47,7 +47,7 @@ export default class SearchBar extends Component {
   render(){
   return (
     <>
-    <dev className="searchBar"><input type="text" value={this.state.q} placeholder="Search" id="Search" onChange={this.change}/>   <button type="submit" onClick={this.props.search.bind(this,this.state.q)} ><i className="fa fa-search"></i></button>
+    <dev className="searchBar"><input type="text"  className="form-control" value={this.state.q} placeholder="Search" id="Search" onChange={this.change}/>   <button type="submit" className="btn btn-secondary" style={{verticalAlign: "baseline"}} onClick={this.props.search.bind(this,this.state.q)} ><i className="fa fa-search"></i></button>
      </dev>
 
     </>

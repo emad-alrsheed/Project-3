@@ -6,7 +6,7 @@ import SearchBar from './Components/SearchBar';
 import VideoDetail from './Components/VideoDetail'
 import axios from 'axios';
 
-var myKey = "AIzaSyBWM2E6zwTUf5Rc4gYfvnJmUGelCnVo3xg";//this is the key for 
+var myKey = "AIzaSyCT5YNj0WpEUrt_4K8b3GZ6NoBZTOImXMA"; 
 var maxResults = 3;
 
 
@@ -19,13 +19,13 @@ export default class App extends Component {
  
 search = (q) => {
   var x = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=${maxResults}&q=${q}&type=video&key=${myKey}`
-  console.log(q)
+  // console.log(q)
   axios.get(x)
 
      .then(response => {
 
-       console.log(response.data.items);
-       console.log(response.data.items[0].snippet.title);
+      //  console.log(response.data.items);
+      //  console.log(response.data.items[0].snippet.title);
 
 
        this.setState({
@@ -34,7 +34,7 @@ search = (q) => {
          items: response.data.items
 
        });
-       console.log(this.state.u);
+      //  console.log(this.state.u);
 
      })
 
@@ -46,13 +46,16 @@ search = (q) => {
 }
 
 openVideo = (item) => {
-  console.log(item.id.videoId)
-  console.log("____________")
-  console.log(item.snippet.description)
+  // console.log(item.id.videoId)
+  // console.log("____________")
+  // console.log(item.snippet.description)
   this.setState({
   u: "https://www.youtube.com/embed/" + item.id.videoId,
   description: item.snippet.description
   })
+  // console.log("BELOW")
+  // console.log(this.state.u)
+
 }
 
  
@@ -60,13 +63,21 @@ openVideo = (item) => {
   return (
     <>
     <dev className="Body">
-      <SearchBar search = {this.search}/>
+      <div className="searchBox">
+      <SearchBar search = {this.search}/> </div>
       <div className="FLEX">
+        <div>
       <VideoPlayer url = {this.state.u}/>
-      <VideoList items={this.state.items} openVideo={this.openVideo} />
+      <VideoDetail description= {this.state.description}/>
+
       </div>
       <div>
-        <VideoDetail description= {this.state.description}/>
+      <VideoList items={this.state.items} openVideo={this.openVideo} />
+      {/* <VideoDetail description= {this.state.description}/> */}
+      </div>
+      </div>
+      <div>
+        
       </div>
     </dev>
     </>

@@ -9,7 +9,11 @@ export default class VideoDetail extends Component {
   render(){
   return (
     <>
-    <dev className="VideoDetail" >
+    <dev className="VideoDetail" style={{
+
+border: (this.props.description) ? '0.5px solid gray' : 'none'
+
+}}>
         {this.props.description}
     </dev>
     </>

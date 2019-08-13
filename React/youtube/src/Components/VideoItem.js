@@ -24,6 +24,7 @@ changeCursor = () => {
     <div ><img src={this.props.items.snippet.thumbnails.default.url} alt="thumbnails"/></div>
     <div >{this.props.items.snippet.title}</div>
     </dev>
+    <hr/>
     </>
   );
 }
