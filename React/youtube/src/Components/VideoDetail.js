@@ -7,6 +7,8 @@ export default class VideoDetail extends Component {
  }
 
   render(){
+    if(this.props.t===0)
+    return "";
   return (
     <>
     <dev className="VideoDetail" style={{

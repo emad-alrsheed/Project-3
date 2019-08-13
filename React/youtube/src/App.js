@@ -63,15 +63,17 @@ search = (q) => {
 
       //  console.log(response.data.items);
       //  console.log(response.data.items[0].snippet.title);
-
+      console.log(response.data.pageInfo.totalResults)
 
        this.setState({
 
         //  u: "https://www.youtube.com/embed/" + response.data.items[0].id.videoId,
-         items: response.data.items
+         items: response.data.items,
+         totalResults: response.data.pageInfo.totalResults
 
        });
       //  console.log(this.state.u);
+      console.log(this.state.totalResults)
 
      })
 
@@ -98,6 +100,13 @@ openVideo = (item) => {
 
  
   render(){
+    if(this.state.totalResults===0)
+    {
+      this.state.u= "";
+      this.state.description= "";
+      this.state.title="";
+    }
+
   return (
     <>
     <dev className="Body">
@@ -105,8 +114,8 @@ openVideo = (item) => {
       <SearchBar search = {this.search}/> </div>
       <div className="FLEX">
         <div>
-      <VideoPlayer url = {this.state.u}/>
-      <VideoDetail description= {this.state.description} title={this.state.title}/>
+      <VideoPlayer url = {this.state.u} t={this.state.totalResults}/>
+      <VideoDetail description= {this.state.description} title={this.state.title} t={this.state.totalResults}/>
 
       </div>
       <div>
