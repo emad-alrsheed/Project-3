@@ -12,8 +12,12 @@ export default class SearchBar extends Component {
  }
 
  change = (e) => {
-   console.log( e.target.value)
-   this.setState({q: e.target.value})
+  //  console.log( e.target.value)
+   var s = e.target.value;
+  //  s = s.replace("+","%2B")
+  //  s = s.replace("+","%2B")
+   this.setState({q: s})
+   console.log(this.state.q)
  }
 
 //  search = () => {

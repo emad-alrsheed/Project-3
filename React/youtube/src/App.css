@@ -53,6 +53,7 @@
     grid-template-columns:130px 200px;
     /* border: 1px solid #ddd; */
     /* padding-bottom: 10px; */
+    align-items: center;
     
 }
 .FLEX{
