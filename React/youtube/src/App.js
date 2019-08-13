@@ -18,7 +18,7 @@ export default class App extends Component {
    title:""
  }
  
-search = (q) => {
+search = (q, Clean) => {
   // while(q.indexOf("+") !== -1)
   // q = q.replace("+" ,"%2B")
   q = q.replace(/[%]/g ,"%25")//8
@@ -82,6 +82,8 @@ search = (q) => {
        console.log(error);
 
      });
+     Clean();
+     
 }
 
 openVideo = (item) => {

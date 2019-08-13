@@ -20,6 +20,10 @@ export default class SearchBar extends Component {
    console.log(this.state.q)
  }
 
+ Clean = () => {
+   this.setState({q: ""})
+ }
+
 //  search = () => {
    
 //    var x = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=${maxResults}&q=${this.state.q}&type=video&key=${myKey}`
@@ -51,7 +55,7 @@ export default class SearchBar extends Component {
   render(){
   return (
     <>
-    <dev className="searchBar"><input type="text"  className="form-control" value={this.state.q} placeholder="Search" id="Search" onChange={this.change}/>   <button type="submit" className="btn btn-secondary" style={{verticalAlign: "baseline"}} onClick={this.props.search.bind(this,this.state.q)} ><i className="fa fa-search"></i></button>
+    <dev className="searchBar"><input type="text"  className="form-control" value={this.state.q} placeholder="Search" id="Search" onChange={this.change}/>   <button type="submit" className="btn btn-secondary" style={{verticalAlign: "baseline"}} onClick={this.props.search.bind(this,this.state.q, this.Clean)} ><i className="fa fa-search"></i></button>
      </dev>
 
     </>
