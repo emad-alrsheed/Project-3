@@ -14,6 +14,7 @@ export default class VideoDetail extends Component {
 border: (this.props.description) ? '0.5px solid gray' : 'none'
 
 }}>
+        <h6 style={{fontWeight:"bold"}}>{this.props.title}</h6>
         {this.props.description}
     </dev>
     </>

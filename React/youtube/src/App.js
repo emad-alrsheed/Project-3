@@ -14,7 +14,8 @@ export default class App extends Component {
  state = {
    u: "",
    items: [],
-   description: ""
+   description: "",
+   title:""
  }
  
 search = (q) => {
@@ -51,7 +52,8 @@ openVideo = (item) => {
   // console.log(item.snippet.description)
   this.setState({
   u: "https://www.youtube.com/embed/" + item.id.videoId,
-  description: item.snippet.description
+  description: item.snippet.description,
+  title: item.snippet.title
   })
   // console.log("BELOW")
   // console.log(this.state.u)
@@ -68,7 +70,7 @@ openVideo = (item) => {
       <div className="FLEX">
         <div>
       <VideoPlayer url = {this.state.u}/>
-      <VideoDetail description= {this.state.description}/>
+      <VideoDetail description= {this.state.description} title={this.state.title}/>
 
       </div>
       <div>
