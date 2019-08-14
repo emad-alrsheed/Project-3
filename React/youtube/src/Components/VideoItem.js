@@ -1,32 +1,36 @@
-import React, {Component} from 'react';
-
+import React, { Component } from "react";
 
 export default class VideoItem extends Component {
- state = {
+  state = {};
+  //  openVideo = () => {
+  //    this.setState({
+  //      u: u
+  //    })
 
- }
-//  openVideo = () => {
-//    this.setState({
-//      u: u
-//    })
+  //  }
 
-//  }
+  changeCursor = () => {
+    this.style = { cursor: "pointer" };
+  };
 
-changeCursor = () => {
-  this.style = {cursor: "pointer"}
-}
-
- 
-  render(){
-  return (
-    <>
-    <dev className="item" onClick={this.props.openVideo.bind(this,this.props.items)} >
-    <div ><img style={{    maxWidth: "180px",
-    maxHeight: "200px" }} src={this.props.items.snippet.thumbnails.medium.url} alt="thumbnails"/></div>
-    <div >{this.props.items.snippet.title}</div>
-    </dev>
-    <hr/>
-    </>
-  );
-}
+  render() {
+    return (
+      <>
+        <dev
+          className="item"
+          onClick={this.props.openVideo.bind(this, this.props.items)}
+        >
+          <div>
+            <img
+              style={{ maxWidth: "180px", maxHeight: "200px" }}
+              src={this.props.items.snippet.thumbnails.medium.url}
+              alt="thumbnails"
+            />
+          </div>
+          <div>{this.props.items.snippet.title}</div>
+        </dev>
+        <hr />
+      </>
+    );
+  }
 }

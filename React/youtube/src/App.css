@@ -1,74 +1,69 @@
-.videoPlayer{
-    /* border: 2px solid black; */
-    height: 100px;
-    width: 50%;
+.videoPlayer {
+  /* border: 2px solid black; */
+  height: 100px;
+  width: 50%;
 }
 
-.body{
-    height: 100%;
-    width: 100%;
+.body {
+  height: 100%;
+  width: 100%;
 }
 
-#Search{
-    display: inline-block;
-    /* margin: auto; */
-    width: 85%;
-    /* min-width:300px; */
-    /* margin-top: 4%; */
+#Search {
+  display: inline-block;
+  /* margin: auto; */
+  width: 85%;
+  /* min-width:300px; */
+  /* margin-top: 4%; */
 }
 
-.searchBar{
-    display: block;
-    margin: auto;
-    /* max-width:25%;
+.searchBar {
+  display: block;
+  margin: auto;
+  /* max-width:25%;
     min-width: 6%; */
-    width: 350px;
-    margin-bottom: 30px;
-    margin-top: 3%;
-    /* background-color: darkgray;  */
+  width: 350px;
+  margin-bottom: 30px;
+  margin-top: 3%;
+  /* background-color: darkgray;  */
 }
 
-.searchBox{
-    /* background-color: darkgray;  */
+.Video {
+  /* display: inline-block; */
+  /* margin: auto; */
+  display: block;
+  width: 560px;
+  margin-right: 20px;
 }
 
-.searchBar1{
-    /* display: inline-block; */
-    /* margin: auto; */
-    width: 560px;
-    margin-right: 20px;
-}
-
-.videoList{
-    display: grid;
-    /* height: 350px; */
-    /* border: 1px solid #ddd; */
-    
+.videoList {
+  display: grid;
+  /* height: 350px; */
+  /* border: 1px solid #ddd; */
 }
 
 .item {
-    cursor: pointer;
-    /* display: inline-block */
-    display: grid;
-    grid-template-columns:190px 170px;
-    /* border: 1px solid #ddd; */
-    /* padding-bottom: 10px; */
-    align-items: center;
-    
+  cursor: pointer;
+  /* display: inline-block */
+  display: grid;
+  grid-template-columns: 190px 170px;
+  /* border: 1px solid #ddd; */
+  /* padding-bottom: 10px; */
+  align-items: center;
 }
-.FLEX{
-    display: flex;
-    /* width: 80%; */
-    /* margin: auto; */
-    /* align-items: center; */
-    justify-content: center;
+.FLEX {
+  display: flex;
+  /* width: 80%; */
+  /* margin: auto; */
+  /* align-items: center; */
+  justify-content: center;
 }
 
-.VideoDetail{
-    display: block;
-    width: 560px;
-    /* margin-left: 10%; */
-    /* border: 0.5px solid gray; */
-    margin-top: 10px;
-    padding: 13px;
+.VideoDetail {
+  display: block;
+  width: 560px;
+  /* margin-left: 10%; */
+  /* border: 0.5px solid gray; */
+  margin-top: 10px;
+  padding: 13px;
 }
