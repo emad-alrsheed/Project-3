@@ -5,8 +5,8 @@ const VideoShow=(props)=> {
     if(!video){
         return <div>Loading</div>;
     }
-    let videoID=video.id.videoId;
-    let url = "https://www.youtube.com/embed/"+videoID;
+    const videoID=video.id.videoId;
+    const url = "https://www.youtube.com/embed/"+videoID;
     
     return(
         <div className="video-detail col-md-8">

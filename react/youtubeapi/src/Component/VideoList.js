@@ -4,7 +4,8 @@ import VideoTitle from './VideoTitle';
 const VideoList=(props)=>{
     const videoItems=props.videos.map((video)=>{
         return(
-            <VideoTitle key={video.etag}
+            <VideoTitle  onUserSelected={props.onVideoSelect}
+            key={video.etag}
             video={video}/>
         );
     });
