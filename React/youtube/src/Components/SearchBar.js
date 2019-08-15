@@ -1,7 +1,4 @@
 import React, { Component } from "react";
-// import axios from "axios";
-// var myKey = "AIzaSyBWM2E6zwTUf5Rc4gYfvnJmUGelCnVo3xg";
-// var maxResults = 3;
 
 export default class SearchBar extends Component {
   state = {
@@ -11,46 +8,17 @@ export default class SearchBar extends Component {
   };
 
   change = e => {
+    // this function to handle the change on input (to store what user inputs)
     //  console.log( e.target.value)
-    var s = e.target.value;
-    //  s = s.replace("+","%2B")
-    //  s = s.replace("+","%2B")
-    this.setState({ q: s });
+    var s = e.target.value; // this variable is to store what user write on serach box.
+    this.setState({ q: s }); // storing the variable s in the key q (q is one of the params, that represent the search term)
     console.log(this.state.q);
   };
 
-  searchDefault = () => {};
   Clean = () => {
+    // this function just to clean the input field after searching
     this.setState({ q: "" });
   };
-
-  //  search = () => {
-
-  //    var x = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=${maxResults}&q=${this.state.q}&type=video&key=${myKey}`
-  //    console.log(`${this.state.q}`)
-  //    axios.get(x)
-
-  //       .then(response => {
-
-  //         console.log(response.data.items);
-
-  //         this.setState({
-
-  //           u: "https://www.youtube.com/embed/" + response.data.items[0].id.videoId,
-  //           q:"",
-  //           items: response.data.items
-
-  //         });
-  //         console.log(this.state.u);
-
-  //       })
-
-  //       .catch(error => {
-
-  //         console.log(error);
-
-  //       });
-  //  }
 
   render() {
     return (

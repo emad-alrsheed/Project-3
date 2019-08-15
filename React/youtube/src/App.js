@@ -6,21 +6,23 @@ import SearchBar from "./Components/SearchBar";
 import VideoDetail from "./Components/VideoDetail";
 import axios from "axios";
 
-var myKey = "AIzaSyCT5YNj0WpEUrt_4K8b3GZ6NoBZTOImXMA";
-var maxResults = 3;
+var myKey = "AIzaSyCT5YNj0WpEUrt_4K8b3GZ6NoBZTOImXMA"; // this is a key for youtube api
+var maxResults = 3; // this variable is to declare how many maximum results
 
 export default class App extends Component {
   state = {
-    u: "",
-    items: [],
-    description: "",
-    title: ""
+    u: "", // this key to store the video's url which will be opened
+    items: [], // this key to store "maximum results" videos shows up by using the search
+    description: "", // this key to store the description of opened video
+    title: "" // this key to store the title of opened video
   };
 
   search = (q, Clean) => {
+    // this function is to get the videos from the search term, and to get the total results(to check if there are any videos, or the serach doesnt match any result), and to implement the clear function which will clear the search box after clicking on the search button
     // while(q.indexOf("+") !== -1)
     // q = q.replace("+" ,"%2B")
-    q = q.replace(/[%]/g, "%25"); //8
+    // those statements are to get the exact search term (in the url) when using special characters (by replacing every special character with the real strings that represent those special characters)
+    q = q.replace(/[%]/g, "%25"); //8 ... put this statement on the first to avoid replacing any other % (while converting the another special characters)
     q = q.replace(/[+]/g, "%2B"); //1
     q = q.replace(/[~]/g, "%7E"); //2
     q = q.replace(/[`]/g, "%60"); //3
@@ -50,42 +52,70 @@ export default class App extends Component {
     q = q.replace(/[}]/g, "%7D"); //28
     q = q.replace(/ /g, "%20"); //29
 
-    if (q === "") return;
-    var x = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=${maxResults}&q=${q}&type=video&key=${myKey}`;
-    console.log(q);
-    console.log(x);
+    if (q === "") return; // this if statement is to avoid searching when theres no content in the search box
+    var x = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=${maxResults}&q=${q}&type=video&key=${myKey}`; // this variable is to store the http link to get the data from youtube .. using 3 variables in it: q which is the search term, maxResults to specifiy the maximum results, and myKey which is the youtube api key.
+    // console.log(q);
+    // console.log(x);
 
-    axios
+    axios // using axios method to get the data from x (above link)
       .get(x)
-
       .then(response => {
         //  console.log(response.data.items);
         //  console.log(response.data.items[0].snippet.title);
-        console.log(response.data.pageInfo.totalResults);
+        // console.log(response.data.pageInfo.totalResults);
 
         this.setState({
-          //  u: "https://www.youtube.com/embed/" + response.data.items[0].id.videoId,
-          items: response.data.items,
-          totalResults: response.data.pageInfo.totalResults
+          items: response.data.items, //storing the vidoes
+          totalResults: response.data.pageInfo.totalResults // stroing total results
         });
-        //  console.log(this.state.u);
-        console.log(this.state.totalResults);
+        // console.log(this.state.totalResults);
       })
 
       .catch(error => {
         console.log(error);
       });
-    Clean();
+    Clean(); // executing the clear function (to clear search box)
   };
 
+  /* Below, another code for searching, using axios instance (axios.create):
+  first, create a file for example YoutubeApi.js, and define instance:
+
+  import axios from 'axios';
+  export default axios.create({
+    baseURL: 'https://www.googleapis.com/youtube/v3/'
+  })
+
+  
+  Then in app file, import and use it: ... using async + await (ES8) instead of then 
+  
+  search = async (q, Clean) => {
+    if (q === "") return;
+    const response = await YoutubeApi.get("/search", {
+      params: {
+        q: q,
+        part: "snippet",
+        maxResults: 3,
+        key: myKey,
+        type: "video"
+      }
+    });
+
+    this.setState({
+      items: response.data.items,
+      totalResults: response.data.pageInfo.totalResults
+    });
+    Clean();
+  }; */
+
   openVideo = item => {
+    // this function to store the link, description and title of the selected video from vidoes list.
     // console.log(item.id.videoId)
     // console.log("____________")
     // console.log(item.snippet.description)
     this.setState({
-      u: "https://www.youtube.com/embed/" + item.id.videoId,
-      description: item.snippet.description,
-      title: item.snippet.title
+      u: "https://www.youtube.com/embed/" + item.id.videoId, //this key to store the link of the selected video
+      description: item.snippet.description, // this key to store the description
+      title: item.snippet.title // this key to store the title
     });
     // console.log("BELOW")
     // console.log(this.state.u)
@@ -93,10 +123,11 @@ export default class App extends Component {
 
   render() {
     if (this.state.totalResults === 0) {
+      // this if statement is to clear any previous info (if exist) if the search doesnt match any results (total results = 0)
       this.state.u = "";
       this.state.description = "";
       this.state.title = "";
-      // this.setState({u: "", description:"", title:""})
+      // this.setState({u: "", description:"", title:""}) not using setState due to unwanted results (to prevent the react to re render some components)
     }
 
     return (

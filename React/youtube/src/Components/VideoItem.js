@@ -2,16 +2,6 @@ import React, { Component } from "react";
 
 export default class VideoItem extends Component {
   state = {};
-  //  openVideo = () => {
-  //    this.setState({
-  //      u: u
-  //    })
-
-  //  }
-
-  changeCursor = () => {
-    this.style = { cursor: "pointer" };
-  };
 
   render() {
     return (

@@ -4,7 +4,7 @@ export default class VideoDetail extends Component {
   state = {};
 
   render() {
-    if (this.props.t === 0) return "";
+    if (this.props.t === 0) return ""; // this if statement is to return nothing if there are no results.
     return (
       <>
         <dev

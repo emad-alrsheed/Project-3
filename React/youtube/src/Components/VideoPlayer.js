@@ -5,6 +5,7 @@ export default class VideoPlayer extends Component {
 
   render() {
     if (this.props.t === 0)
+      // this if statement is to show a message that indecates that the search term doesnt match any results .. by checking the total results (which is a prop called t)
       return (
         <>
           <dev>
