@@ -12,8 +12,8 @@ class App extends Component {
     super(props);
     this.state={
       videos:[],
-      selectedVideo:null,
-      videoSearch:('plane')
+      selectedVideo:null
+     
     };
     this.videoSearch('plane');
   }
@@ -22,8 +22,8 @@ class App extends Component {
     YTSearch({key:APIKey, term:searchTerm},(data)=>{
       this.setState({
         videos:data,
-        selectedVideo:data[0],
-        videoSearch:('plane')
+        selectedVideo:data[0]
+        
       });
     });
   }
