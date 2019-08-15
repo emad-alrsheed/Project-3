@@ -4,11 +4,11 @@
 }
 
 .search-bar input{
-  width: 75%;
+  width: 50%;
 }
 
 .video-item img{
-  max-width: 64px;
+  max-width: 640px;
 }
 
 .video-detail .details{
