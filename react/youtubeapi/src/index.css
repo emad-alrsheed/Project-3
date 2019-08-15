@@ -13,6 +13,10 @@
 
 .video-detail .details{
   margin-top: 10px;
+  width: 522px;
+  height: 102px;
+  margin-left: 0px;
+ 
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -20,6 +24,10 @@
 
 .list-group-item{
   cursor: pointer;
+  margin-left: 810px;
+  padding-right: 10px;
+  width: 400px;
+  bottom:550px;
 }
 
 .list-group-item:hover{
