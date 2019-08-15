@@ -5,13 +5,13 @@ const VideoShow=(props)=> {
     if(!video){
         return <div>Loading</div>;
     }
-    const videoId=video.id.videoId;
-    const url='https://www.youtube.com/embed/${videoID}';
+    let videoID=video.id.videoId;
+    let url = "https://www.youtube.com/embed/"+videoID;
     
     return(
         <div className="video-detail col-md-8">
             <div className="embed-responsive embed-responsive-16by9" >
-                <iframe className="embed-responsive-item" src={url}></iframe>
+            <iframe className='vid-container' title='video' width="560" height="315" src={url} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
             </div>
             <div className="details">
             <div>{video.snippet.title}</div>
