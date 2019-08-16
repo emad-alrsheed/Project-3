@@ -1,0 +1,21 @@
+.list-item-frame {
+    width: 200px;
+}
+
+h5,
+p {
+    margin-left: 12px;
+}
+
+.list-group-item {
+    cursor: pointer;
+}
+
+.list-group-item:hover {
+    cursor: pointer;
+    background-color: #eee;
+}
+
+.video-item img {
+    max-width: 64px;
+}
