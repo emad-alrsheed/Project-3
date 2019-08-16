@@ -12,7 +12,7 @@ export default class SearchBar extends Component {
     //  console.log( e.target.value)
     var s = e.target.value; // this variable is to store what user write on serach box.
     this.setState({ q: s }); // storing the variable s in the key q (q is one of the params, that represent the search term)
-    console.log(this.state.q);
+    // console.log(this.state.q);
   };
 
   Clean = () => {
