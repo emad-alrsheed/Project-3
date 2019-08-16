@@ -6,9 +6,6 @@ import SearchBar from "./Components/SearchBar";
 import VideoDetail from "./Components/VideoDetail";
 import axios from "axios";
 
-var myKey = "AIzaSyCT5YNj0WpEUrt_4K8b3GZ6NoBZTOImXMA"; // this is a key for youtube api
-var maxResults = 3; // this variable is to declare how many maximum results
-
 export default class App extends Component {
   state = {
     u: "", // this key to store the video's url which will be opened
