@@ -19,7 +19,7 @@ class App extends React.Component {
         this.videoSearch('plane');
       }
     videoSearch(searchTerm){
-        youtube({key:KEY, term:searchTerm},(data)=>{
+        axios({key:KEY, term:searchTerm},(data)=>{
           this.setState({
             videos:data,
             selectedVideo:data[0]
@@ -27,7 +27,7 @@ class App extends React.Component {
         });
       }
     handleSubmit = async (termFromSearchBar) => {
-        const response = await youtube.get('/search', {
+        const response = await axios.get('/search', {
             params: {
                 q: termFromSearchBar
             }
@@ -47,7 +47,7 @@ class App extends React.Component {
                 <div className='ui grid'>
                     <div className="ui row">
                         <div className="eleven wide column">
-                            <VideoDetail video={this.state.selectedVideo}/>
+                            <VideoList video={this.state.selectedVideo}/>
                         </div>
                         <div className="five wide column">
                             <VideoList handleVideoSelect={this.handleVideoSelect} videos={this.state.videos}/>
