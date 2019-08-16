@@ -5,6 +5,22 @@ class SearchBar extends React.Component{
        state={term:''};
        onInputChange=this.onInputChange.bind(this);
 
+        // ip
+        handleChange = (event) => {
+          this.setState({
+              term: event.target.value
+              
+          });
+      };
+      handleSubmit = event => {
+          event.preventDefault();
+          this.props.handleFormSubmit(this.state.term);
+      }
+        
+        
+        // ip
+
+    
     
     onInputChange(event){
         this.setState({term:event.target.value});
@@ -13,8 +29,11 @@ class SearchBar extends React.Component{
     render(){
         return(
             <div className="search-bar">
-                <input value={this.state.term}
-                onChange={this.onInputChange}/>
+                <input 
+                onChange={this.handleChange} placeholder="search"/>
+
+
+                <button  > search</button>
             </div>
         );
     }

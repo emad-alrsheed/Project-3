@@ -1,4 +1,5 @@
 import React from 'react';
+const result=3;
 
 const VideoShows = (props) => {
     const video = props.video;
@@ -6,7 +7,7 @@ const VideoShows = (props) => {
         return <div>Loading</div>;
     }
     const videoId = video.id.videoId;
-    const url = `https://www.youtube.com/embed/${videoId}`;
+    const url = `https://www.youtube.com/embed/${videoId} `;
 
     return (
         <div className="video-detail col-md-8">
