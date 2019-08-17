@@ -1,0 +1,33 @@
+{
+  "name": "youtubeapi",
+  "version": "1.0.0",
+  "description": "Project-3-Youtube-Api",
+  "main": "YoutubeServer.js",
+  "scripts": {
+    "test": "node",
+    "server": "nodemon YoutubeServer.js",
+    "start": "node YoutubeServer.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohamad-aktham-obeidat/Project-3.git"
+  },
+  "author": "Mohamad Aktham Obeidat",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mohamad-aktham-obeidat/Project-3/issues"
+  },
+  "homepage": "https://github.com/mohamad-aktham-obeidat/Project-3#readme",
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "morgan": "^1.9.1",
+    "node": "^12.8.0",
+    "node-fetch": "^2.6.0"
+  }
+}
