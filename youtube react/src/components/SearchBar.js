@@ -35,7 +35,7 @@ class Searchbar extends React.Component {
                         <label htmlFor="video-search">Youtube project</label>
                         <input placeholder="Search for..." onChange={this.onInputChange}
                         value={this.state.term} />
-                        <input type="button" value="search" onClick={this.props.videoButton.bind(this, this.state.term)}/>
+                        {/* <input type="button" value="search" onClick={this.props.videoButton.bind(this, this.state.term)}/> */}
                     </div>
                 </form>
             </div>
