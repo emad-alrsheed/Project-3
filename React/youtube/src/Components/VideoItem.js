@@ -8,16 +8,16 @@ export default class VideoItem extends Component {
       <>
         <dev
           className="item"
-          onClick={this.props.openVideo.bind(this, this.props.items)}
+          onClick={this.props.openVideo.bind(this, this.props.item)}
         >
           <div>
             <img
               style={{ maxWidth: "180px", maxHeight: "200px" }}
-              src={this.props.items.snippet.thumbnails.medium.url}
+              src={this.props.item.snippet.thumbnails.medium.url}
               alt="thumbnails"
             />
           </div>
-          <div>{this.props.items.snippet.title}</div>
+          <div>{this.props.item.snippet.title}</div>
         </dev>
         <hr />
       </>

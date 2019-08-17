@@ -11,7 +11,7 @@ export default class VideoList extends Component {
           {this.props.items.map((elem, index) => (
             // maping through items, to store every item as prop to Videoitem component
             <VideoItem
-              items={elem}
+              item={elem}
               openVideo={this.props.openVideo}
               key={index}
             />

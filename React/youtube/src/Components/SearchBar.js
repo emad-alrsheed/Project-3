@@ -8,7 +8,7 @@ export default class SearchBar extends Component {
   };
 
   change = e => {
-    // this function to handle the change on input (to store what user inputs)
+    // this function is to handle the change on input (to store what user inputs)
     //  console.log( e.target.value)
     var s = e.target.value; // this variable is to store what user write on serach box.
     this.setState({ q: s }); // storing the variable s in the key q (q is one of the params, that represent the search term)
@@ -16,7 +16,7 @@ export default class SearchBar extends Component {
   };
 
   Clean = () => {
-    // this function just to clean the input field after searching
+    // this function is just to clean the input field after searching
     this.setState({ q: "" });
   };
 

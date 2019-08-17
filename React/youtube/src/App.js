@@ -51,7 +51,7 @@ export default class App extends Component {
     // q = q.replace(/ /g, "%20"); //29
 
     q = encodeURIComponent(q); // this statement is to replace every special character to A new string representing the provided string encoded as a Uniform Resource Identifier (URI) component.
-    console.log(q);
+    // console.log(q);
     if (q === "") return; // this if statement is to avoid searching when theres no content in the search box
 
     // var x = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=${maxResults}&q=${q}&type=video&key=${myKey}`; // this variable is to store the http link to get the data from youtube .. using 3 variables in it: q which is the search term, maxResults to specifiy the maximum results, and myKey which is the youtube api key.
@@ -67,7 +67,7 @@ export default class App extends Component {
 
         this.setState({
           items: response.data.items, //storing the vidoes
-          totalResults: response.data.pageInfo.totalResults // stroing total results
+          totalResults: response.data.pageInfo.totalResults // storing total results
         });
         // console.log(this.state.totalResults);
       })
@@ -109,14 +109,14 @@ export default class App extends Component {
   }; */
 
   openVideo = item => {
-    // this function to store the link, description and title of the selected video from vidoes list.
+    // this function is to store the link, description and title of the selected video from vidoes list.
     // console.log(item.id.videoId)
     // console.log("____________")
     // console.log(item.snippet.description)
     this.setState({
-      u: "https://www.youtube.com/embed/" + item.id.videoId, //this key to store the link of the selected video
-      description: item.snippet.description, // this key to store the description
-      title: item.snippet.title // this key to store the title
+      u: "https://www.youtube.com/embed/" + item.id.videoId, //this key is to store the link of the selected video
+      description: item.snippet.description, // this key is to store the description
+      title: item.snippet.title // this key is to store the title
     });
     // console.log("BELOW")
     // console.log(this.state.u)
