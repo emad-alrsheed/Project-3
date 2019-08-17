@@ -1,0 +1,46 @@
+body {
+  background-color: rgb(109, 109, 109);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100vw;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+}
+
+.bottom {
+  display: flex;
+  border: 4px solid rgb(255, 255, 255);
+  border-radius: 5px;
+}
+
+.videoAndDetail {
+  background-color: #007bff;
+  color: white;
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+
+.list {
+  background-color: #007bff;
+  color: white;
+  flex: 1;
+  padding: 15px;
+}
+
+.listItem {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.listItem > img {
+  margin-right: 5px;
+}
