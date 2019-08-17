@@ -1,0 +1,38 @@
+
+/* Search component */
+.search{
+  margin: 20px;
+  text-align: center;
+  
+}
+.search input{
+  width: 65%;
+  border: 2.5px solid salmon;
+  border-radius: 5%;
+  height: 40px;
+}
+.search input:hover{
+  width: 85%;
+  border: 2.5px solid blue;
+  color: blue;
+  background-color:#eee;
+}
+
+/* video-detail component */
+.video-detail .details{
+  margin-top: 10px;
+  padding: 10px;
+  border: 2px solid red;
+  border-radius: 4px;
+}
+
+/* video-list component */
+.list-group-item{
+  cursor: pointer;
+  margin-bottom: 1px;
+}
+
+.list-group-item:hover{
+  background-color: #eee;
+  border: 2px solid red;
+}
