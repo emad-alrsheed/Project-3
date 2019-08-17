@@ -7,8 +7,8 @@ import Search from './Components/Search';
 import Video from './Components/Video';
 import List from './Components/List';
 
-const API_KEY = 'AIzaSyAbU4azHjAu9ZeuAyqGeMvmkyqysD8Rrug';  // MY API KEY.
-const ROOT_URL = 'https://www.googleapis.com/youtube/v3/search';  // BASE URL TO MAKE SEARCH PROCESS USING IT.
+// const API_KEY = 'AIzaSyAbU4azHjAu9ZeuAyqGeMvmkyqysD8Rrug';  // MY API KEY.
+// const ROOT_URL = 'https://www.googleapis.com/youtube/v3/search';  // BASE URL TO MAKE SEARCH PROCESS USING IT.
 
 class App extends Component{
 
@@ -25,17 +25,21 @@ class App extends Component{
 
   // The Definition Of The Function That Make Search Process For Us.
     videosSearch (term){
+    
+      /*     This Way Didn't Require ""EXPRESS SERVER""
+      
       // Parameters That will Be Included In Request URL
-      const params = {
-        part: 'snippet',
-        maxResults: 25,
-        key: API_KEY,
-        q: term,
-        type: 'video'
-      };
+      // const params = {
+      //   part: 'snippet',
+      //   maxResults: 25,
+      //   key: API_KEY,
+      //   q: term,
+      //   type: 'video'
+      // };
       //@Method GET
       //Fetch All Videos From Server To React App 
-      axios.get(ROOT_URL, { params: params })
+
+       axios.get(ROOT_URL, { params: params })
         .then(response => {
           console.log(response)
           this.setState({videos : response.data.items, // Set The Response Array To The Array in "App State"
@@ -43,8 +47,25 @@ class App extends Component{
         })
         .catch(error => {
           console.error(error);
-        });
+        }); 
+        
+        
+        */
+ 
+       //@Method GET
+      //Fetch All Videos From ""Express Server"" To React App
+      axios.get("http://localhost:1333/videos/"+term)
+      .then(response => {
+        console.log(response)
+        console.log(response.data)
+        this.setState({videos : response.data, // Set The Response Array To The Array in "App State"
+              selectedVideo: response.data[0]}); // Set "Selected Video" To First Element Of Response Array
+      })
+      .catch(error => {
+        console.error(error);
+      });
       }
+      
 
   render() {
     return (
