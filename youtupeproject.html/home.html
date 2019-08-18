@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id='root'></div>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js" integrity="sha256-S1J4GVHHDMiirir9qsXWc8ZWw74PHHafpsHp5PXtjTs=" crossorigin="anonymous"></script>
+
+
+
+
+<script type="text/babel">
+class Home extends React.Component
+{
+    state = {query:''}
+    changeHandler=(e)=>
+    {
+        this.setState({query:e.target.value})
+
+    }
+render()
+{
+ 
+    return(
+        <div>
+        <input type="text" onChange={this.changeHandler}/>
+       
+                  <Video query={this.state.query}/>
+                  <Play videoId='Ke90Tje7VS0'/>
+        
+       
+      
+               
+       
+           
+        
+     
+        
+        </div>
+    )
+}
+
+
+}
+
+class Video extends React.Component{
+    state={videosURL:[]};
+
+    componentWillReceiveProps=()=>
+        
+      {
+         axios.get("https://www.googleapis.com/youtube/v3/search?part=snippet&key=AIzaSyCi75hqiYJBsXPIeedtVXYiWSngXFRpO_E&q="+this.props.query+"").
+        then(vid=>this.setState({ videosURL:vid.data.items}))
+      }
+    
+ 
+
+    render(){
+        console.log(this.props.query)
+               
+
+      
+            return(
+
+                <div>
+{
+    this.state.videosURL.map(x=><div key={x.id.videoId} style={{width:'560px',height:'315px'}}><a href='home/:'><img key={x.id.videoId} src={x.snippet.thumbnails.high.url} /></a></div>)
+
+}
+                
+            
+              
+
+            </div>
+
+            
+                 
+
+                    
+                
+            )
+        
+    }
+}
+
+class Play extends React.Component
+{
+    render(){
+
+        return(
+            <div style={{width:'560px',height:'315px'}}>
+        <iframe width="560" height="315"
+         src={"https://www.youtube.com/embed/"+this.props.videoId} 
+          allow="accelerometer; autoplay;
+          encrypted-media; gyroscope; picture-in-picture" 
+          ></iframe>
+        </div>
+        )
+    }
+}
+ReactDOM.render(<Home/>,document.getElementById('root'))
+</script>
+</body>
+</html>
